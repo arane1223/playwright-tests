@@ -49,4 +49,4 @@ test.beforeEach(async ({ page }) => {
     expect(outputText).toContain(permanentAddress);
   });
 
-}); // ← Закрытие describe блока - это важно!
+});
