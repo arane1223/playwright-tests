@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 
 test.describe('DemoQA Text Box', () => {
 
@@ -22,11 +23,11 @@ test.beforeEach(async ({ page }) => {
   });
 
   test('should submit form with valid data', async ({ page }) => {
-    // Hardcode данные для теста
-    const userName = 'John Doe';
-    const email = 'john.doe@example.com';
-    const currentAddress = '123 Main Street, New York, NY 10001';
-    const permanentAddress = '456 Park Avenue, Boston, MA 02101';
+    // Данные для теста
+    const userName = faker.person.fullName();
+    const email = faker.internet.email();
+    const currentAddress = faker.location.streetAddress();
+    const permanentAddress = faker.location.streetAddress();
 
     // Заполняем поля
     await page.fill('#userName', userName);
